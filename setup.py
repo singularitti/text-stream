@@ -10,11 +10,6 @@ PY3 = sys.version_info
 if PY3 < (3, 5):
     raise EnvironmentError('Please use CPython interpreter higher than version 3.5!')
 
-__author__ = {'Qi Zhang': 'qz2280@columbia.edu'}
-__copyright__ = 'Copyright (c) 2018, Qi Zhang'
-__date__ = 'Mar 7, 2018'
-__maintainer__ = 'Qi Zhang'
-
 setup(
     name='text_stream',
     version='0.1.0',
