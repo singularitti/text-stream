@@ -12,7 +12,7 @@ if PY3 < (3, 5):
 
 setup(
     name='text_stream',
-    version='0.1.0',
+    version='0.2.0',
     packages=['text_stream', 'text_stream.tests'],
     url='https://github.com/singularitti/text_stream',
     license='MIT',
