@@ -1,13 +1,6 @@
-Welcome to text-stream\'s documentation!
-========================================
+---
+layout: post
+title: Welcome to text-stream's documentation!
+---
 
-::: {.toctree}
-api
-:::
-
-Indices and tables
-==================
-
--   [genindex]{role="ref"}
--   [modindex]{role="ref"}
--   [search]{role="ref"}
+This is a doc.
