@@ -33,9 +33,11 @@ class TextStream:
     then the string will be parsed by this separator.
     If you give a file path in *inp*, and if it is valid, then the file will be read.
 
+    .. rubric:: Footnotes
+
     .. [#f] Referenced from `here <https://docs.microsoft.com/en-us/cpp/c-runtime-library/text-and-binary-streams>`_.
 
-    :param inp: Input, can be a ``str``, an ``StringIO`` instance, a ``pathlib.PurePath`` object,
+    :param inp: Input, can be a ``str``, an ``StringIO`` instance, a ``pathlib.PurePath`` object,...
         or ``None`` (which means read from standard input).
     """
 
@@ -84,7 +86,7 @@ class TextStream:
         """
         Create a generate that iterates the whole content of the file or string.
 
-        :return: An iterator iterating the lines of the text stream, separated by ``\n`` or ``'\r'``.
+        :return: An iterator iterating the lines of the text stream, separated by ``'\\n'`` or ``'\\r'``.
         """
         stream = self.stream  # In case that ``self.stream`` is changed.
         stream.seek(0)
@@ -95,8 +97,8 @@ class TextStream:
         """
         Create a generate that iterates the whole content of the file or string, and also tells which offset is now.
 
-        :return: An iterator iterating tuples, containing lines of the text stream, separated by ``\n`` or ``'\r'``;
-            and the offset (in bytes) of current line.
+        :return: An iterator iterating tuples, containing lines of the text stream,...
+            separated by ``'\\n'`` or ``'\\r'``; and the offset (in bytes) of current line.
         """
         stream = self.stream  # In case that ``self.stream`` is changed.
         stream.seek(0)
@@ -107,15 +109,16 @@ class TextStream:
         """
         Create a generate that iterates the whole content of the file or string, starting from *offset* bytes.
 
-        :param offset: Change the stream position to the given byte *offset*. *offset* is interpreted relative to the
-            position indicated by *whence*. The default value for whence is ``SEEK_SET``.
-        :param whence: Values for whence are:
-            * ``SEEK_SET`` or ``0`` – start of the stream (the default); *offset* should be zero or positive
-            * ``SEEK_CUR`` or ``1`` – current stream position; *offset* may be negative
-            * ``SEEK_END`` or ``2`` – end of the stream; *offset* is usually negative
-        :return: An iterator iterating the lines of the text stream, separated by ``\n`` or ``'\r'``, starting
+        :param offset: Change the stream position to the given byte *offset*....
+            *offset* is interpreted relative to the position indicated by *whence*. The default value for whence is ``SEEK_SET``.
+        :param whence: Values for whence are:...
+            - ``SEEK_SET`` or ``0`` – start of the stream (the default); *offset* should be zero or positive...
+            - ``SEEK_CUR`` or ``1`` – current stream position; *offset* may be negative...
+            - ``SEEK_END`` or ``2`` – end of the stream; *offset* is usually negative
+        :return: An iterator iterating the lines of the text stream, separated by ``'\\n'`` or ``'\\r'``, starting...
             from given byte *offset*.
         """
+
         stream = self.stream  # In case that ``self.stream`` is changed.
         stream.seek(offset, whence)
         for line in stream:
@@ -130,6 +133,7 @@ class TextStream:
         :param end: An integer labels the ending index.
         :return: An iterator of string.
         """
+
         s: str = self.content[begin:end + 1]
         for line in s:
             yield line
@@ -141,6 +145,7 @@ class TextStream:
 
         :return: The whole contents of the file or the string.
         """
+
         return self.stream.getvalue()
 
 
@@ -148,8 +153,9 @@ def _user_input() -> str:
     """
     A helper function which waits for user multi-line input.
 
-    :return: A string input by user, separated by ``'\n'``.
+    :return: A string input by user, separated by ``'\\n'``.
     """
+
     lines = []
     try:
         while True:
